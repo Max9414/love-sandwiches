@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 
 SCOPE = [
@@ -27,7 +26,7 @@ def get_sales_data():
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
         
         sales_data = data_str.split(",")
         validate_data(sales_data)
@@ -111,7 +110,7 @@ def calculate_stock_data(data):
     for column in data:
         int_column = [int(num) for num in column]
         average = sum(int_column) / len(int_column)
-        stock_num = average *1.1
+        stock_num = average * 1.1
         new_stock_data.append(round(stock_num))
 
     return new_stock_data
